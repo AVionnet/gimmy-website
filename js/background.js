@@ -88,12 +88,8 @@
         }
         var posx = posy = 0
         if (e.pageX || e.pageY) {
-            posx = e.pageX //+ document.documentElement.scrollLeft
-            posy = e.pageY //+ document.documentElement.scrollTop
-        }
-        else if (e.clientX || e.clientY) {
-            posx = e.clientX - document.body.scrollLeft - document.documentElement.scrollLeft
-            posy = e.clientY - document.body.scrollTop - document.documentElement.scrollTop
+            posx = e.pageX
+            posy = e.pageY
         }
         target.x = posx
         target.y = posy
