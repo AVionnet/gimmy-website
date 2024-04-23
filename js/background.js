@@ -12,9 +12,6 @@
         height = window.innerHeight
         target = { x: -100, y: -100 }
 
-        largeHeader = document.getElementById('header')
-        largeHeader.style.height = height + 'px'
-
         canvas = document.getElementById('demo-canvas')
         canvas.classList.add('show')
 
