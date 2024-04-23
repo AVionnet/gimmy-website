@@ -35,12 +35,15 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link href="./output.css" rel="stylesheet">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script async defer src="./js/main.js"></script>
+    <script async defer src="./js/background.js"></script>
 </head>
 
 <body>
-    <header class="fixed w-full">
+    <header id="header" class="fixed w-full">
         <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
             <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
                 <a href="#" class="flex items-center">
@@ -89,7 +92,8 @@
 
     <!-- Start block -->
     <section class="bg-white dark:bg-gray-900" id="top">
-        <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+        <canvas id="demo-canvas"></canvas>
+        <div class="grid h-screen max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
                     Vos données enfin accessibles
@@ -106,7 +110,7 @@
                     </a>
                 </div>
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <div class="lg:mt-0 lg:col-span-5 lg:flex">
                 <img src="./images/infographie.png" alt="hero image">
             </div>
         </div>
@@ -351,14 +355,47 @@
 
 
     <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900" id="price">
+    <section id="faq" class="bg-white dark:bg-gray-900">
+        <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-10 lg:px-6 pt-20">
+            <h2 class="mb-6 text-3xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white">
+                Questions fréquentes
+            </h2>
+            <div class="max-w-screen-md mx-auto">
+                <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
+                    <h3 id="accordion-flush-heading-1">
+                        <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+                            <span>Can I use Gimmy in open-source projects?</span>
+                            <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </button>
+                    </h3>
+                    <div id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">Gimmy is an
+                                open-source library of interactive components built on top of
+                                Tailwind CSS including buttons, dropdowns, modals, navbars, and
+                                more.</p>
+                            <p class="text-gray-500 dark:text-gray-400">Check out this guide to
+                                learn how to <a href="#" class="text-cyan-600 dark:text-cyan-500 hover:underline">get
+                                    started</a> and start developing websites even faster with
+                                components on top of Tailwind CSS.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Start block -->
+    <section id="price" class="bg-white dark:bg-gray-900">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
             <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                 <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                    Designed for business teams like yours</h2>
-                <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Here at
-                    Gimmy we focus on markets where technology, innovation, and capital can
-                    unlock long-term value and drive economic growth.</p>
+                    Et tout ça, à quel prix ?
+                </h2>
             </div>
             <div class="space-y-8 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0">
                 <!-- Pricing Card -->
@@ -483,220 +520,60 @@
     <!-- End block -->
 
 
-    <!-- Start block -->
-    <section id="faq" class="bg-white dark:bg-gray-900">
-        <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-24 lg:px-6 ">
-            <h2 class="mb-6 text-3xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white">
-                Frequently asked questions</h2>
-            <div class="max-w-screen-md mx-auto">
-                <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
-                    <h3 id="accordion-flush-heading-1">
-                        <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
-                            <span>Can I use Gimmy in open-source projects?</span>
-                            <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                                </path>
-                            </svg>
-                        </button>
-                    </h3>
-                    <div id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Gimmy is an
-                                open-source library of interactive components built on top of
-                                Tailwind CSS including buttons, dropdowns, modals, navbars, and
-                                more.</p>
-                            <p class="text-gray-500 dark:text-gray-400">Check out this guide to
-                                learn how to <a href="#" class="text-cyan-600 dark:text-cyan-500 hover:underline">get
-                                    started</a> and start developing websites even faster with
-                                components on top of Tailwind CSS.</p>
-                        </div>
-                    </div>
-                    <h3 id="accordion-flush-heading-2">
-                        <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
-                            <span>Is there a Figma file available?</span>
-                            <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                                </path>
-                            </svg>
-                        </button>
-                    </h3>
-                    <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Gimmy is first
-                                conceptualized and designed using the Figma software so everything
-                                you see in the library has a design equivalent in our Figma file.
-                            </p>
-                            <p class="text-gray-500 dark:text-gray-400">Check out the <a href="#" class="text-cyan-600 dark:text-cyan-500 hover:underline">Figma
-                                    design system</a> based on the utility classes from Tailwind CSS
-                                and components from Gimmy.</p>
-                        </div>
-                    </div>
-                    <h3 id="accordion-flush-heading-3">
-                        <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
-                            <span>What are the differences between Gimmy and Tailwind UI?</span>
-                            <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                                </path>
-                            </svg>
-                        </button>
-                    </h3>
-                    <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is
-                                that the core components from Gimmy are open source under the MIT
-                                license, whereas Tailwind UI is a paid product. Another difference
-                                is that Gimmy relies on smaller and standalone components,
-                                whereas Tailwind UI offers sections of pages.</p>
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually
-                                recommend using both Gimmy, Gimmy Pro, and even Tailwind UI as
-                                there is no technical reason stopping you from using the best of two
-                                worlds.</p>
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these
-                                technologies:</p>
-                            <ul class="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                                <li><a href="#" class="text-cyan-600 dark:text-cyan-500 hover:underline">Gimmy
-                                        Pro</a></li>
-                                <li><a href="#" class="text-cyan-600 dark:text-cyan-500 hover:underline">Tailwind
-                                        UI</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h3 id="accordion-flush-heading-4">
-                        <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
-                            <span>What about browser support?</span>
-                            <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                                </path>
-                            </svg>
-                        </button>
-                    </h3>
-                    <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is
-                                that the core components from Gimmy are open source under the MIT
-                                license, whereas Tailwind UI is a paid product. Another difference
-                                is that Gimmy relies on smaller and standalone components,
-                                whereas Tailwind UI offers sections of pages.</p>
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually
-                                recommend using both Gimmy, Gimmy Pro, and even Tailwind UI as
-                                there is no technical reason stopping you from using the best of two
-                                worlds.</p>
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these
-                                technologies:</p>
-                            <ul class="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                                <li><a href="#" class="text-cyan-600 dark:text-cyan-500 hover:underline">Gimmy
-                                        Pro</a></li>
-                                <li><a href="#" class="text-cyan-600 dark:text-cyan-500 hover:underline">Tailwind
-                                        UI</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- End block -->
     <footer class="bg-white dark:bg-gray-800">
         <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+            <div class="grid grid-cols-2 gap-2 lg:grid-cols-4">
+                <div class="">
+                    <img src="./images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Gimmy Logo" />
+                </div>
                 <div>
                     <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                        Company</h3>
+                        Contact
+                    </h3>
                     <ul class="text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class=" hover:underline">About</a>
+                            contact@gimmy.com
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Careers</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Brand Center</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Blog</a>
+                            developpement@gimmy.com
                         </li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                        Help center</h3>
+                        Adresse
+                    </h3>
                     <ul class="text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Discord Server</a>
+                            126 avenue Vincent Auriol
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Twitter</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Facebook</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Contact Us</a>
+                            31120 Roques
                         </li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                        Legal</h3>
+                        Informations légales
+                    </h3>
                     <ul class="text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Privacy Policy</a>
+                            <a href="#" class="hover:underline">TVA</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Licensing</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Terms</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                        Company</h3>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class=" hover:underline">About</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Careers</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Brand Center</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Blog</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                        Download</h3>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">iOS</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Android</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Windows</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">MacOS</a>
+                            <a href="#" class="hover:underline">SIRET</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
             <div class="text-center">
-                <a href="#" class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">
-                    <img src="./images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Gimmy Logo" />
-                    Gimmy
-                </a>
                 <span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2021-2022
                     Gimmy™. All Rights Reserved.
                 </span>
             </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
         </div>
     </footer>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>

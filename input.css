@@ -5,3 +5,18 @@
 html {
     scroll-behavior: smooth;
 }
+
+#demo-canvas {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+#demo-canvas.show {
+    opacity: 1;
+}
+
+nav {
+    z-index: 1;
+}
