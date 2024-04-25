@@ -1045,8 +1045,8 @@ input:checked + .toggle-bg {
   margin-right: auto;
 }
 
-.mt-10 {
-  margin-top: 2.5rem;
+.mt-0 {
+  margin-top: 0px;
 }
 
 .mt-2 {
@@ -1097,6 +1097,14 @@ input:checked + .toggle-bg {
   display: none;
 }
 
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -1133,6 +1141,10 @@ input:checked + .toggle-bg {
   width: 2.5rem;
 }
 
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -1151,6 +1163,26 @@ input:checked + .toggle-bg {
 
 .w-full {
   width: 100%;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-4\/12 {
+  width: 33.333333%;
+}
+
+.w-5\/12 {
+  width: 41.666667%;
+}
+
+.w-6\/12 {
+  width: 50%;
+}
+
+.w-8\/12 {
+  width: 66.666667%;
 }
 
 .max-w-2xl {
@@ -1245,6 +1277,10 @@ input:checked + .toggle-bg {
   flex-wrap: wrap;
 }
 
+.content-center {
+  align-content: center;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -1275,6 +1311,10 @@ input:checked + .toggle-bg {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-items-center {
+  justify-items: center;
 }
 
 .gap-2 {
@@ -1453,6 +1493,14 @@ input:checked + .toggle-bg {
 
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
+}
+
+.fill-white {
+  fill: #ffffff;
+}
+
+.fill-black {
+  fill: #000000;
 }
 
 .p-1 {
@@ -1818,8 +1866,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  aspect-ratio: 1/1;
-  max-width: 90vh;
 }
 
 .animation-example>.item {
@@ -2194,6 +2240,14 @@ body {
   --tw-bg-opacity: 0.8;
 }
 
+.dark\:fill-black:is(.dark *) {
+  fill: #000000;
+}
+
+.dark\:fill-white:is(.dark *) {
+  fill: #ffffff;
+}
+
 .dark\:text-blue-500:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(63 131 248 / var(--tw-text-opacity));
@@ -2360,6 +2414,10 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:content-center {
+    align-content: center;
+  }
+
   .md\:gap-12 {
     gap: 3rem;
   }
@@ -2449,12 +2507,20 @@ body {
     display: none;
   }
 
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
   .lg\:w-4\/5 {
     width: 80%;
   }
 
   .lg\:w-auto {
     width: auto;
+  }
+
+  .lg\:w-1\/4 {
+    width: 25%;
   }
 
   .lg\:grid-cols-12 {

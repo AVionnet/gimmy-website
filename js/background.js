@@ -10,7 +10,7 @@
     function initHeader() {
         width = window.innerWidth
         height = window.innerHeight
-        target = { x: -100, y: -100 }
+        target = { x: -0, y: -0 }
 
         canvas = document.getElementById('demo-canvas')
         canvas.classList.add('show')

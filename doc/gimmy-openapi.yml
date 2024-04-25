@@ -1,0 +1,751 @@
+openapi: 3.0.0
+info:
+  title: Gimmy API
+  version: 1.0.0
+servers:
+  - url: 'https://demo.gimmy.com'
+    description: Demo environment server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: Général
+paths:
+  /pds/api/login:
+    post:
+      tags:
+        - Général
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                login: test
+                password: QYAEgF1uAE1tRia3zAGhAm
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/account:
+    get:
+      tags:
+        - Général
+      summary: Liste des utilisateurs
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/hotel:
+    get:
+      tags:
+        - Général
+      summary: Liste des hotels
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/room-type:
+    get:
+      tags:
+        - Général
+      summary: Liste des types de chambres
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/rate:
+    get:
+      tags:
+        - Général
+      summary: Liste des régimes
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/hotel/1:
+    get:
+      tags:
+        - Général
+      summary: Configuration d'un hotel
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/hotel/1/rate-mapping:
+    post:
+      tags:
+        - Général
+      summary: Mapping d'un régime pour un hotel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                pms_id: NANR-B7WD
+                rate_id: 2
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/hotel/1/room-type-mapping:
+    post:
+      tags:
+        - Général
+      summary: Mapping d'un type de chambre pour un hotel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                pms_id: DOUBLE-B7WD
+                room_type_id: 2
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pds/api/booking:
+    get:
+      tags:
+        - Général
+      summary: Liste des réservations
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pms_id
+          in: query
+          schema:
+            type: string
+          description: search by pms_id / string
+        - name: hotel_id
+          in: query
+          schema:
+            type: integer
+          description: internal hotel_id / int
+          example: '1'
+        - name: from
+          in: query
+          schema:
+            type: string
+          description: YYYY-MM-DD date format
+          example: '2024-01-01'
+        - name: to
+          in: query
+          schema:
+            type: string
+          description: YYYY-MM-DD date format
+          example: '2024-02-01'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: for pagination / int > 1
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: for pagination / int > 1
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Général
+      summary: Ajouter/modifier des réservations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                - hotel_id: 1
+                  pms_id: 52-57
+                  booking_group_pms_id: '655622823'
+                  cm_id: null
+                  ota_id: null
+                  date_from: '2024-01-01'
+                  date_to: '2024-01-03'
+                  created_at: '2023-12-21T09:36:00+00:00'
+                  updated_at: '2024-01-03T14:15:00+00:00'
+                  canceled_at: null
+                  no_show_at: null
+                  booking_source: Option
+                  booking_origin: Revendeurs
+                  booking_reason: Tourisme
+                  room_id: '33'
+                  room_label: 5 - DBL
+                  room_type_id: '2'
+                  room_type_label: Double
+                  rate_id: '3'
+                  rate_label: Chambre + Petit Déjeuner
+                  nb_infants: 0
+                  nb_children: 0
+                  nb_adults: 2
+                  customer:
+                    pms_id: '60'
+                    type: PERSON
+                    firstname: France
+                    lastname: PAUL
+                    email: ''
+                    phone: ''
+                    mobile: ''
+                    street_address: ' / '
+                    city: ''
+                    country: FR
+                    travel_card: null
+                    birth_date: null
+                    company: ''
+                    siren: ''
+                    siret: ''
+                    civility: M.
+                    nationality: FR
+                    language: fr
+                    customer_group: Famille
+                    customer_category: Seniors
+                    customer_origin: Pub réseaux sociaux
+                  sales:
+                    - pms_id: '433'
+                      type: ACCOMODATION
+                      label: Hébergement 01/01/2024
+                      quantity: 1
+                      category_label: Hébergement
+                      category_id: '0'
+                      product_label: null
+                      product_id: null
+                      is_offered: false
+                      amount_incl: 0
+                      amount_excl: 0
+                      currency: EUR
+                      consumed_at: '2024-01-01T00:00:00+00:00'
+                      created_at: '2023-12-30T11:50:00+00:00'
+                      updated_at: '2023-12-30T11:50:00+00:00'
+                      canceled_at: null
+                    - pms_id: '434'
+                      type: ACCOMODATION
+                      label: Hébergement 02/01/2024
+                      quantity: 1
+                      category_label: Hébergement
+                      category_id: '0'
+                      product_label: null
+                      product_id: null
+                      is_offered: false
+                      amount_incl: 40
+                      amount_excl: 36.36
+                      currency: EUR
+                      consumed_at: '2024-01-02T00:00:00+00:00'
+                      created_at: '2023-12-30T11:50:00+00:00'
+                      updated_at: '2023-12-30T11:50:00+00:00'
+                      canceled_at: null
+                    - pms_id: '435'
+                      type: EXTRA
+                      label: Petit déjeuner buffet
+                      quantity: 2
+                      category_label: Articles suppléments
+                      category_id: '2'
+                      product_label: Petit déjeuner buffet
+                      product_id: '1'
+                      is_offered: false
+                      amount_incl: 20
+                      amount_excl: 18.18
+                      currency: EUR
+                      consumed_at: '2024-01-02T00:00:00+00:00'
+                      created_at: '2023-12-30T11:50:00+00:00'
+                      updated_at: '2023-12-30T11:50:00+00:00'
+                      canceled_at: null
+                    - pms_id: '436'
+                      type: EXTRA
+                      label: Petit déjeuner buffet
+                      quantity: 2
+                      category_label: Articles suppléments
+                      category_id: '2'
+                      product_label: Petit déjeuner buffet
+                      product_id: '1'
+                      is_offered: false
+                      amount_incl: 20
+                      amount_excl: 18.18
+                      currency: EUR
+                      consumed_at: '2024-01-03T00:00:00+00:00'
+                      created_at: '2023-12-30T11:50:00+00:00'
+                      updated_at: '2023-12-30T11:50:00+00:00'
+                      canceled_at: null
+                    - pms_id: '625'
+                      type: TOURIST_TAXE
+                      label: Taxe de séjour 01/01/2024
+                      quantity: 2
+                      category_label: null
+                      category_id: null
+                      product_label: null
+                      product_id: null
+                      is_offered: false
+                      amount_incl: 3
+                      amount_excl: 0
+                      currency: EUR
+                      consumed_at: '2024-01-01T00:00:00+00:00'
+                      created_at: '2023-12-30T11:50:00+00:00'
+                      updated_at: '2023-12-30T11:50:00+00:00'
+                      canceled_at: null
+                    - pms_id: '626'
+                      type: TOURIST_TAXE
+                      label: Taxe de séjour 02/01/2024
+                      quantity: 2
+                      category_label: null
+                      category_id: null
+                      product_label: null
+                      product_id: null
+                      is_offered: false
+                      amount_incl: 3
+                      amount_excl: 0
+                      currency: EUR
+                      consumed_at: '2024-01-02T00:00:00+00:00'
+                      created_at: '2023-12-30T11:50:00+00:00'
+                      updated_at: '2023-12-30T11:50:00+00:00'
+                      canceled_at: null
+                  xdatas: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                Ajouter/modifier des réservations:
+                  value:
+                    bookings:
+                      - id: 30
+                        hotel_id: 1
+                        pms_id: 52-57
+                        booking_group_pms_id: '655622823'
+                        cm_id: null
+                        ota_id: null
+                        date_from: '2024-01-01'
+                        date_to: '2024-01-03'
+                        created_at: '2023-12-21T09:36:00+00:00'
+                        updated_at: '2024-01-03T14:15:00+00:00'
+                        canceled_at: null
+                        no_show_at: null
+                        booking_source: Option
+                        booking_origin: Revendeurs
+                        booking_reason: Tourisme
+                        room_id: '33'
+                        room_label: 5 - DBL
+                        room_type_id: '2'
+                        room_type_label: Double
+                        rate_id: '3'
+                        rate_label: Chambre + Petit Déjeuner
+                        nb_infants: 0
+                        nb_children: 0
+                        nb_adults: 2
+                        customer:
+                          id: 30
+                          booking_id: 30
+                          hotel_id: 1
+                          pms_id: '60'
+                          type: PERSON
+                          firstname: France
+                          lastname: PAUL
+                          email: ''
+                          phone: ''
+                          mobile: ''
+                          street_address: ' / '
+                          city: ''
+                          country: FR
+                          travel_card: null
+                          birth_date: null
+                          company: ''
+                          siren: ''
+                          siret: ''
+                          civility: M.
+                          nationality: FR
+                          language: fr
+                          customer_group: Famille
+                          customer_category: Seniors
+                          customer_origin: Pub réseaux sociaux
+                        sales:
+                          - id: 142
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '433'
+                            type: ACCOMODATION
+                            label: Hébergement 01/01/2024
+                            quantity: 1
+                            category_label: Hébergement
+                            category_id: '0'
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 0
+                            amount_excl: 0
+                            currency: EUR
+                            consumed_at: '2024-01-01T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 143
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '434'
+                            type: ACCOMODATION
+                            label: Hébergement 02/01/2024
+                            quantity: 1
+                            category_label: Hébergement
+                            category_id: '0'
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 40
+                            amount_excl: 36.36
+                            currency: EUR
+                            consumed_at: '2024-01-02T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 144
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '435'
+                            type: EXTRA
+                            label: Petit déjeuner buffet
+                            quantity: 2
+                            category_label: Articles suppléments
+                            category_id: '2'
+                            product_label: Petit déjeuner buffet
+                            product_id: '1'
+                            is_offered: false
+                            amount_incl: 20
+                            amount_excl: 18.18
+                            currency: EUR
+                            consumed_at: '2024-01-02T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 145
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '436'
+                            type: EXTRA
+                            label: Petit déjeuner buffet
+                            quantity: 2
+                            category_label: Articles suppléments
+                            category_id: '2'
+                            product_label: Petit déjeuner buffet
+                            product_id: '1'
+                            is_offered: false
+                            amount_incl: 20
+                            amount_excl: 18.18
+                            currency: EUR
+                            consumed_at: '2024-01-03T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 146
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '625'
+                            type: TOURIST_TAXE
+                            label: Taxe de séjour 01/01/2024
+                            quantity: 2
+                            category_label: null
+                            category_id: null
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 3
+                            amount_excl: 0
+                            currency: EUR
+                            consumed_at: '2024-01-01T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 147
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '626'
+                            type: TOURIST_TAXE
+                            label: Taxe de séjour 02/01/2024
+                            quantity: 2
+                            category_label: null
+                            category_id: null
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 3
+                            amount_excl: 0
+                            currency: EUR
+                            consumed_at: '2024-01-02T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                        xdatas: []
+                Ajouter/modifier des réservations avec xdatas:
+                  value:
+                    bookings:
+                      - id: 30
+                        hotel_id: 1
+                        pms_id: 52-57
+                        booking_group_pms_id: '655622823'
+                        cm_id: null
+                        ota_id: null
+                        date_from: '2024-01-01'
+                        date_to: '2024-01-03'
+                        created_at: '2023-12-21T09:36:00+00:00'
+                        updated_at: '2024-01-03T14:15:00+00:00'
+                        canceled_at: null
+                        no_show_at: null
+                        booking_source: Option
+                        booking_origin: Revendeurs
+                        booking_reason: Tourisme
+                        room_id: '33'
+                        room_label: 5 - DBL
+                        room_type_id: '2'
+                        room_type_label: Double
+                        rate_id: '3'
+                        rate_label: Chambre + Petit Déjeuner
+                        nb_infants: 0
+                        nb_children: 0
+                        nb_adults: 2
+                        customer:
+                          id: 30
+                          booking_id: 30
+                          hotel_id: 1
+                          pms_id: '60'
+                          type: PERSON
+                          firstname: France
+                          lastname: PAUL
+                          email: ''
+                          phone: ''
+                          mobile: ''
+                          street_address: ' / '
+                          city: ''
+                          country: FR
+                          travel_card: null
+                          birth_date: null
+                          company: ''
+                          siren: ''
+                          siret: ''
+                          civility: M.
+                          nationality: FR
+                          language: fr
+                          customer_group: Famille
+                          customer_category: Seniors
+                          customer_origin: Pub réseaux sociaux
+                        sales:
+                          - id: 142
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '433'
+                            type: ACCOMODATION
+                            label: Hébergement 01/01/2024
+                            quantity: 1
+                            category_label: Hébergement
+                            category_id: '0'
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 0
+                            amount_excl: 0
+                            currency: EUR
+                            consumed_at: '2024-01-01T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 143
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '434'
+                            type: ACCOMODATION
+                            label: Hébergement 02/01/2024
+                            quantity: 1
+                            category_label: Hébergement
+                            category_id: '0'
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 40
+                            amount_excl: 36.36
+                            currency: EUR
+                            consumed_at: '2024-01-02T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 144
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '435'
+                            type: EXTRA
+                            label: Petit déjeuner buffet
+                            quantity: 2
+                            category_label: Articles suppléments
+                            category_id: '2'
+                            product_label: Petit déjeuner buffet
+                            product_id: '1'
+                            is_offered: false
+                            amount_incl: 20
+                            amount_excl: 18.18
+                            currency: EUR
+                            consumed_at: '2024-01-02T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 145
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '436'
+                            type: EXTRA
+                            label: Petit déjeuner buffet
+                            quantity: 2
+                            category_label: Articles suppléments
+                            category_id: '2'
+                            product_label: Petit déjeuner buffet
+                            product_id: '1'
+                            is_offered: false
+                            amount_incl: 20
+                            amount_excl: 18.18
+                            currency: EUR
+                            consumed_at: '2024-01-03T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 146
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '625'
+                            type: TOURIST_TAXE
+                            label: Taxe de séjour 01/01/2024
+                            quantity: 2
+                            category_label: null
+                            category_id: null
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 3
+                            amount_excl: 0
+                            currency: EUR
+                            consumed_at: '2024-01-01T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                          - id: 147
+                            booking_id: 30
+                            hotel_id: 1
+                            pms_id: '626'
+                            type: TOURIST_TAXE
+                            label: Taxe de séjour 02/01/2024
+                            quantity: 2
+                            category_label: null
+                            category_id: null
+                            product_label: null
+                            product_id: null
+                            is_offered: false
+                            amount_incl: 3
+                            amount_excl: 0
+                            currency: EUR
+                            consumed_at: '2024-01-02T00:00:00+00:00'
+                            created_at: '2023-12-30T11:50:00+00:00'
+                            updated_at: '2023-12-30T11:50:00+00:00'
+                            canceled_at: null
+                        xdatas:
+                          crm:
+                            id: 1
+                            booking_id: 30
+                            updated_at: '2024-04-13T16:15:36+02:00'
+                            key: crm
+                            value:
+                              id: A45ETTF6
+                          door:
+                            id: 2
+                            booking_id: 30
+                            updated_at: '2024-04-13T16:15:36+02:00'
+                            key: door
+                            value:
+                              last_open: '2024-03-12 15:45:32'
+                          dayuse:
+                            id: 3
+                            booking_id: 30
+                            updated_at: '2024-04-13T16:15:36+02:00'
+                            key: dayuse
+                            value: false
+  /pds/api/booking/1/52-57:
+    get:
+      tags:
+        - Général
+      summary: Réservation par hotel/pms_id
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
