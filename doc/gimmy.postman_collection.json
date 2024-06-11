@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "082095b9-d06b-4031-bc6f-738ffb57365b",
+		"_postman_id": "c206f764-3033-4eeb-a7d0-6b6e9f9fd54f",
 		"name": "Gimmy API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "5672157"
+		"_exporter_id": "8210519"
 	},
 	"item": [
 		{
-			"name": "Général",
+			"name": "PDS",
 			"item": [
 				{
 					"name": "Login",
@@ -29,7 +29,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"login\": \"test\",\n    \"password\": \"QYAEgF1uAE1tRia3zAGhAm\"\n}",
+							"raw": "{\n    \"login\": \"demo\",\n    \"password\": \"**********\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -51,106 +51,6 @@
 					"response": []
 				},
 				{
-					"name": "Liste des utilisateurs",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/pds/api/account",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pds",
-								"api",
-								"account"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Liste des hotels",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/pds/api/hotel",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pds",
-								"api",
-								"hotel"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Liste des types de chambres",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/pds/api/room-type",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pds",
-								"api",
-								"room-type"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Liste des régimes",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/pds/api/rate",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"pds",
-								"api",
-								"rate"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Configuration d'un hotel",
 					"request": {
 						"method": "GET",
@@ -162,22 +62,21 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/pds/api/hotel/1",
+							"raw": "{{baseUrl}}/pds/api/config",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"pds",
 								"api",
-								"hotel",
-								"1"
+								"config"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Mapping d'un régime pour un hotel",
+					"name": "Mapping d'un régime pour un hotel Copy",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -197,16 +96,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/pds/api/hotel/1/rate-mapping",
+							"raw": "{{baseUrl}}/pds/api/hotels/1/rate-mappings",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"pds",
 								"api",
-								"hotel",
+								"hotels",
 								"1",
-								"rate-mapping"
+								"rate-mappings"
 							]
 						}
 					},
@@ -233,16 +132,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/pds/api/hotel/1/room-type-mapping",
+							"raw": "{{baseUrl}}/pds/api/hotels/1/room-type-mappings",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"pds",
 								"api",
-								"hotel",
+								"hotels",
 								"1",
-								"room-type-mapping"
+								"room-type-mappings"
 							]
 						}
 					},
@@ -260,14 +159,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/pds/api/booking?from=2024-01-01&to=2024-02-01",
+							"raw": "{{baseUrl}}/pds/api/bookings?from=2024-01-01&to=2024-02-01",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"pds",
 								"api",
-								"booking"
+								"bookings"
 							],
 							"query": [
 								{
@@ -321,14 +220,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/pds/api/booking/1/52-57",
+							"raw": "{{baseUrl}}/pds/api/bookings/1/52-57",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"pds",
 								"api",
-								"booking",
+								"bookings",
 								"1",
 								"52-57"
 							]
@@ -349,7 +248,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "[{\n    \"hotel_id\": 1,\n    \"pms_id\": \"52-57\",\n    \"booking_group_pms_id\": \"655622823\",\n    \"cm_id\": null,\n    \"ota_id\": null,\n    \"date_from\": \"2024-01-01\",\n    \"date_to\": \"2024-01-03\",\n    \"created_at\": \"2023-12-21T09:36:00+00:00\",\n    \"updated_at\": \"2024-01-03T14:15:00+00:00\",\n    \"canceled_at\": null,\n    \"no_show_at\": null,\n    \"booking_source\": \"Option\",\n    \"booking_origin\": \"Revendeurs\",\n    \"booking_reason\": \"Tourisme\",\n    \"room_id\": \"33\",\n    \"room_label\": \"5 - DBL\",\n    \"room_type_id\": \"2\",\n    \"room_type_label\": \"Double\",\n    \"rate_id\": \"3\",\n    \"rate_label\": \"Chambre + Petit Déjeuner\",\n    \"nb_infants\": 0,\n    \"nb_children\": 0,\n    \"nb_adults\": 2,\n    \"customer\": {\n        \"pms_id\": \"60\",\n        \"type\": \"PERSON\",\n        \"firstname\": \"France\",\n        \"lastname\": \"PAUL\",\n        \"email\": \"\",\n        \"phone\": \"\",\n        \"mobile\": \"\",\n        \"street_address\": \" / \",\n        \"city\": \"\",\n        \"country\": \"FR\",\n        \"travel_card\": null,\n        \"birth_date\": null,\n        \"company\": \"\",\n        \"siren\": \"\",\n        \"siret\": \"\",\n        \"civility\": \"M.\",\n        \"nationality\": \"FR\",\n        \"language\": \"fr\",\n        \"customer_group\": \"Famille\",\n        \"customer_category\": \"Seniors\",\n        \"customer_origin\": \"Pub réseaux sociaux\"\n    },\n    \"sales\": [{\n        \"pms_id\": \"433\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 01/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 0,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"434\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 02/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 40,\n        \"amount_excl\": 36.36,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"435\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"436\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-03T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"625\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 01/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"626\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 02/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }],\n    \"xdatas\": [\n    ]\n}]",
+							"raw": "[{\n    \"hotel_id\": 1,\n    \"pms_id\": \"52-57\",\n    \"booking_group_pms_id\": \"655622823\",\n    \"cm_id\": null,\n    \"ota_id\": null,\n    \"date_from\": \"2024-01-01\",\n    \"date_to\": \"2024-01-03\",\n    \"created_at\": \"2023-12-21T09:36:00+00:00\",\n    \"updated_at\": \"2024-01-03T14:15:00+00:00\",\n    \"canceled_at\": null,\n    \"no_show_at\": null,\n    \"booking_source\": \"Option\",\n    \"booking_origin\": \"Revendeurs\",\n    \"booking_reason\": \"Tourisme\",\n    \"room_id\": \"33\",\n    \"room_label\": \"5 - DBL\",\n    \"room_type_id\": \"2\",\n    \"room_type_label\": \"Double\",\n    \"rate_id\": \"3\",\n    \"rate_label\": \"Chambre + Petit Déjeuner\",\n    \"nb_infants\": 0,\n    \"nb_children\": 0,\n    \"nb_adults\": 2,\n    \"customer\": {\n        \"pms_id\": \"60\",\n        \"type\": \"PERSON\",\n        \"firstname\": \"France\",\n        \"lastname\": \"PAUL\",\n        \"email\": \"\",\n        \"phone\": \"\",\n        \"mobile\": \"\",\n        \"street_address\": \" / \",\n        \"postcode\": \"\",\n        \"city\": \"\",\n        \"country\": \"FR\",\n        \"travel_card\": null,\n        \"birth_date\": null,\n        \"company\": \"\",\n        \"siren\": \"\",\n        \"siret\": \"\",\n        \"civility\": \"M.\",\n        \"nationality\": \"FR\",\n        \"language\": \"fr\",\n        \"customer_group\": \"Famille\",\n        \"customer_category\": \"Seniors\",\n        \"customer_origin\": \"Pub réseaux sociaux\"\n    },\n    \"sales\": [{\n        \"pms_id\": \"433\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 01/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 0,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"434\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 02/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 40,\n        \"amount_excl\": 36.36,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"435\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"436\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-03T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"625\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 01/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"626\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 02/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }],\n    \"xdatas\": [\n    ]\n}]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -357,14 +256,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/pds/api/booking",
+							"raw": "{{baseUrl}}/pds/api/bookings",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"pds",
 								"api",
-								"booking"
+								"bookings"
 							]
 						}
 					},
@@ -382,7 +281,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[{\n    \"hotel_id\": 1,\n    \"pms_id\": \"52-57\",\n    \"booking_group_pms_id\": \"655622823\",\n    \"cm_id\": null,\n    \"ota_id\": null,\n    \"date_from\": \"2024-01-01\",\n    \"date_to\": \"2024-01-03\",\n    \"created_at\": \"2023-12-21T09:36:00+00:00\",\n    \"updated_at\": \"2024-01-03T14:15:00+00:00\",\n    \"canceled_at\": null,\n    \"no_show_at\": null,\n    \"booking_source\": \"Option\",\n    \"booking_origin\": \"Revendeurs\",\n    \"booking_reason\": \"Tourisme\",\n    \"room_id\": \"33\",\n    \"room_label\": \"5 - DBL\",\n    \"room_type_id\": \"2\",\n    \"room_type_label\": \"Double\",\n    \"rate_id\": \"3\",\n    \"rate_label\": \"Chambre + Petit Déjeuner\",\n    \"nb_infants\": 0,\n    \"nb_children\": 0,\n    \"nb_adults\": 2,\n    \"customer\": {\n        \"pms_id\": \"60\",\n        \"type\": \"PERSON\",\n        \"firstname\": \"France\",\n        \"lastname\": \"PAUL\",\n        \"email\": \"\",\n        \"phone\": \"\",\n        \"mobile\": \"\",\n        \"street_address\": \" / \",\n        \"city\": \"\",\n        \"country\": \"FR\",\n        \"travel_card\": null,\n        \"birth_date\": null,\n        \"company\": \"\",\n        \"siren\": \"\",\n        \"siret\": \"\",\n        \"civility\": \"M.\",\n        \"nationality\": \"FR\",\n        \"language\": \"fr\",\n        \"customer_group\": \"Famille\",\n        \"customer_category\": \"Seniors\",\n        \"customer_origin\": \"Pub réseaux sociaux\"\n    },\n    \"sales\": [{\n        \"pms_id\": \"433\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 01/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 0,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"434\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 02/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 40,\n        \"amount_excl\": 36.36,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"435\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"436\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-03T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"625\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 01/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"626\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 02/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }]\n}]",
+									"raw": "[{\n    \"hotel_id\": 1,\n    \"pms_id\": \"52-57\",\n    \"booking_group_pms_id\": \"655622823\",\n    \"cm_id\": null,\n    \"ota_id\": null,\n    \"date_from\": \"2024-01-01\",\n    \"date_to\": \"2024-01-03\",\n    \"created_at\": \"2023-12-21T09:36:00+00:00\",\n    \"updated_at\": \"2024-01-03T14:15:00+00:00\",\n    \"canceled_at\": null,\n    \"no_show_at\": null,\n    \"booking_source\": \"Option\",\n    \"booking_origin\": \"Revendeurs\",\n    \"booking_reason\": \"Tourisme\",\n    \"room_id\": \"33\",\n    \"room_label\": \"5 - DBL\",\n    \"room_type_id\": \"2\",\n    \"room_type_label\": \"Double\",\n    \"rate_id\": \"3\",\n    \"rate_label\": \"Chambre + Petit Déjeuner\",\n    \"nb_infants\": 0,\n    \"nb_children\": 0,\n    \"nb_adults\": 2,\n    \"customer\": {\n        \"pms_id\": \"60\",\n        \"type\": \"PERSON\",\n        \"firstname\": \"France\",\n        \"lastname\": \"PAUL\",\n        \"email\": \"\",\n        \"phone\": \"\",\n        \"mobile\": \"\",\n        \"street_address\": \" / \",\n        \"postcode\": \"\",\n        \"city\": \"\",\n        \"country\": \"FR\",\n        \"travel_card\": null,\n        \"birth_date\": null,\n        \"company\": \"\",\n        \"siren\": \"\",\n        \"siret\": \"\",\n        \"civility\": \"M.\",\n        \"nationality\": \"FR\",\n        \"language\": \"fr\",\n        \"customer_group\": \"Famille\",\n        \"customer_category\": \"Seniors\",\n        \"customer_origin\": \"Pub réseaux sociaux\"\n    },\n    \"sales\": [{\n        \"pms_id\": \"433\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 01/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 0,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"434\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 02/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 40,\n        \"amount_excl\": 36.36,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"435\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"436\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-03T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"625\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 01/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"626\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 02/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }]\n}]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -458,7 +357,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[{\n    \"hotel_id\": 1,\n    \"pms_id\": \"52-57\",\n    \"booking_group_pms_id\": \"655622823\",\n    \"cm_id\": null,\n    \"ota_id\": null,\n    \"date_from\": \"2024-01-01\",\n    \"date_to\": \"2024-01-03\",\n    \"created_at\": \"2023-12-21T09:36:00+00:00\",\n    \"updated_at\": \"2024-01-03T14:15:00+00:00\",\n    \"canceled_at\": null,\n    \"no_show_at\": null,\n    \"booking_source\": \"Option\",\n    \"booking_origin\": \"Revendeurs\",\n    \"booking_reason\": \"Tourisme\",\n    \"room_id\": \"33\",\n    \"room_label\": \"5 - DBL\",\n    \"room_type_id\": \"2\",\n    \"room_type_label\": \"Double\",\n    \"rate_id\": \"3\",\n    \"rate_label\": \"Chambre + Petit Déjeuner\",\n    \"nb_infants\": 0,\n    \"nb_children\": 0,\n    \"nb_adults\": 2,\n    \"customer\": {\n        \"pms_id\": \"60\",\n        \"type\": \"PERSON\",\n        \"firstname\": \"France\",\n        \"lastname\": \"PAUL\",\n        \"email\": \"\",\n        \"phone\": \"\",\n        \"mobile\": \"\",\n        \"street_address\": \" / \",\n        \"city\": \"\",\n        \"country\": \"FR\",\n        \"travel_card\": null,\n        \"birth_date\": null,\n        \"company\": \"\",\n        \"siren\": \"\",\n        \"siret\": \"\",\n        \"civility\": \"M.\",\n        \"nationality\": \"FR\",\n        \"language\": \"fr\",\n        \"customer_group\": \"Famille\",\n        \"customer_category\": \"Seniors\",\n        \"customer_origin\": \"Pub réseaux sociaux\"\n    },\n    \"sales\": [{\n        \"pms_id\": \"433\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 01/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 0,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"434\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 02/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 40,\n        \"amount_excl\": 36.36,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"435\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"436\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-03T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"625\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 01/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"626\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 02/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }],\n    \"xdatas\": [\n        {\"key\":\"crm\", \"value\": { \"id\": \"A45ETTF6\"}},\n        {\"key\":\"door\", \"value\": { \"last_open\": \"2024-03-12 15:45:32\"}},\n        {\"key\":\"dayuse\", \"value\": false}\n    ]\n}]",
+									"raw": "[{\n    \"hotel_id\": 1,\n    \"pms_id\": \"52-57\",\n    \"booking_group_pms_id\": \"655622823\",\n    \"cm_id\": null,\n    \"ota_id\": null,\n    \"date_from\": \"2024-01-01\",\n    \"date_to\": \"2024-01-03\",\n    \"created_at\": \"2023-12-21T09:36:00+00:00\",\n    \"updated_at\": \"2024-01-03T14:15:00+00:00\",\n    \"canceled_at\": null,\n    \"no_show_at\": null,\n    \"booking_source\": \"Option\",\n    \"booking_origin\": \"Revendeurs\",\n    \"booking_reason\": \"Tourisme\",\n    \"room_id\": \"33\",\n    \"room_label\": \"5 - DBL\",\n    \"room_type_id\": \"2\",\n    \"room_type_label\": \"Double\",\n    \"rate_id\": \"3\",\n    \"rate_label\": \"Chambre + Petit Déjeuner\",\n    \"nb_infants\": 0,\n    \"nb_children\": 0,\n    \"nb_adults\": 2,\n    \"customer\": {\n        \"pms_id\": \"60\",\n        \"type\": \"PERSON\",\n        \"firstname\": \"France\",\n        \"lastname\": \"PAUL\",\n        \"email\": \"\",\n        \"phone\": \"\",\n        \"mobile\": \"\",\n        \"street_address\": \" / \",\n        \"postcode\": \"\",\n        \"city\": \"\",\n        \"country\": \"FR\",\n        \"travel_card\": null,\n        \"birth_date\": null,\n        \"company\": \"\",\n        \"siren\": \"\",\n        \"siret\": \"\",\n        \"civility\": \"M.\",\n        \"nationality\": \"FR\",\n        \"language\": \"fr\",\n        \"customer_group\": \"Famille\",\n        \"customer_category\": \"Seniors\",\n        \"customer_origin\": \"Pub réseaux sociaux\"\n    },\n    \"sales\": [{\n        \"pms_id\": \"433\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 01/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 0,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"434\",\n        \"type\": \"ACCOMODATION\",\n        \"label\": \"Hébergement 02/01/2024\",\n        \"quantity\": 1,\n        \"category_label\": \"Hébergement\",\n        \"category_id\": \"0\",\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 40,\n        \"amount_excl\": 36.36,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"435\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"436\",\n        \"type\": \"EXTRA\",\n        \"label\": \"Petit déjeuner buffet\",\n        \"quantity\": 2,\n        \"category_label\": \"Articles suppléments\",\n        \"category_id\": \"2\",\n        \"product_label\": \"Petit déjeuner buffet\",\n        \"product_id\": \"1\",\n        \"is_offered\": false,\n        \"amount_incl\": 20,\n        \"amount_excl\": 18.18,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-03T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"625\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 01/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-01T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }, {\n        \"pms_id\": \"626\",\n        \"type\": \"TOURIST_TAXE\",\n        \"label\": \"Taxe de séjour 02/01/2024\",\n        \"quantity\": 2,\n        \"category_label\": null,\n        \"category_id\": null,\n        \"product_label\": null,\n        \"product_id\": null,\n        \"is_offered\": false,\n        \"amount_incl\": 3,\n        \"amount_excl\": 0,\n        \"currency\": \"EUR\",\n        \"consumed_at\": \"2024-01-02T00:00:00+00:00\",\n        \"created_at\": \"2023-12-30T11:50:00+00:00\",\n        \"updated_at\": \"2023-12-30T11:50:00+00:00\",\n        \"canceled_at\": null\n    }],\n    \"xdatas\": [\n        {\"key\":\"crm\", \"value\": { \"id\": \"A45ETTF6\"}},\n        {\"key\":\"door\", \"value\": { \"last_open\": \"2024-03-12 15:45:32\"}},\n        {\"key\":\"dayuse\", \"value\": false}\n    ]\n}]",
 									"options": {
 										"raw": {
 											"language": "json"
