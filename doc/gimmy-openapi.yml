@@ -58,7 +58,7 @@ paths:
     post:
       tags:
         - PDS
-      summary: Mapping d'un régime pour un hotel Copy
+      summary: Mapping d'un régime pour un hotel
       requestBody:
         content:
           application/json:

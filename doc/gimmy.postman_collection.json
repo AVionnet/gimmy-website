@@ -76,7 +76,7 @@
 					"response": []
 				},
 				{
-					"name": "Mapping d'un régime pour un hotel Copy",
+					"name": "Mapping d'un régime pour un hotel",
 					"request": {
 						"method": "POST",
 						"header": [
